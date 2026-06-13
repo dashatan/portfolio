@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --background: #070708;
+  --foreground: #ececee;
+  --muted: #9494a0;
+  --surface: #101014;
+  --surface-elevated: #16161c;
+  --border: rgba(255, 255, 255, 0.08);
+  --accent: #5eead4;
+  --accent-dim: rgba(94, 234, 212, 0.12);
+  --accent-secondary: #fbbf24;
+  --grid: rgba(255, 255, 255, 0.04);
+  --scan: rgba(94, 234, 212, 0.06);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-secondary: var(--accent-secondary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+  }
+
+  ::selection {
+    background: rgba(94, 234, 212, 0.25);
+    color: var(--foreground);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-border bg-surface/80 backdrop-blur-sm;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .scanline {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      var(--scan) 48%,
+      rgba(94, 234, 212, 0.12) 50%,
+      var(--scan) 52%,
+      transparent 100%
+    );
+    background-size: 100% 240px;
+    animation: scan 12s linear infinite;
+  }
+
+  @keyframes scan {
+    from {
+      background-position: 0 -240px;
+    }
+    to {
+      background-position: 0 100vh;
+    }
+  }
+
+  .fade-up {
+    animation: fade-up 0.7s ease-out both;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

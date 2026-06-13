@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Abbas Mohammadian
 
-## Getting Started
+Personal portfolio built as a designed product: dark editorial layout, map/data-inspired motion, and case-study depth for real systems work.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS v4 (`app/global.css`)
+- pnpm
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+cd portfolio
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build
+pnpm start
+```
 
-## Learn More
+## Deploy (Vercel)
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm dlx vercel --prod
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Or connect the repo to Vercel for automatic deployments.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Content
 
-## Deploy on Vercel
+Editable content lives in:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Path | Purpose |
+|------|---------|
+| `content/profile.ts` | Identity, nav, contact |
+| `content/domains.ts` | NDA-safe production domain summaries |
+| `content/projects.ts` | Public project case studies |
+| `content/experience.ts` | Timeline |
+| `content/capabilities.ts` | Skill groups |
+| `content/tools.ts` | Meta-tools links |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## TODO assets
+
+- Add dash-comps showcase visuals or embedded demo
+- Add Equipe demo screenshots when ready
+- Update trade-bot link if you open-source or deploy it
