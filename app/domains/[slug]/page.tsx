@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDomain, productionDomains } from "@/content/domains";
+import { site } from "@/content/site";
 
 type DomainPageProps = {
   params: Promise<{ slug: string }>;
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: DomainPageProps) {
   const domain = getDomain(slug);
 
   if (!domain) {
-    return { title: "Domain not found" };
+    return { title: site.domainPage.notFound };
   }
 
   return {
@@ -41,7 +42,7 @@ export default async function DomainPage({ params }: DomainPageProps) {
           href="/#work"
           className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase transition-colors hover:text-accent"
         >
-          ← Back to work
+          {site.domainPage.backLink}
         </Link>
 
         <div className="mt-10 max-w-3xl">
@@ -58,35 +59,35 @@ export default async function DomainPage({ params }: DomainPageProps) {
           <div className="mt-10 space-y-8 text-base leading-relaxed">
             <section>
               <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                Context
+                {site.domainPage.context}
               </h2>
               <p className="mt-3 text-foreground/90">{domain.context}</p>
             </section>
 
             <section>
               <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                System focus
+                {site.domainPage.focus}
               </h2>
               <p className="mt-3 text-foreground/90">{domain.focus}</p>
             </section>
 
             <section>
               <h2 className="font-mono text-[11px] tracking-[0.22em] text-accent uppercase">
-                My contribution
+                {site.domainPage.contribution}
               </h2>
               <p className="mt-3 text-foreground/90">{domain.contribution}</p>
             </section>
 
             <section>
               <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                Approach
+                {site.domainPage.approach}
               </h2>
               <p className="mt-3 text-foreground/90">{domain.approach}</p>
             </section>
 
             <section>
               <h2 className="font-mono text-[11px] tracking-[0.22em] text-accent-secondary uppercase">
-                Outcomes
+                {site.domainPage.outcomes}
               </h2>
               <ul className="mt-4 space-y-3">
                 {domain.outcomes.map((outcome) => (
@@ -100,7 +101,7 @@ export default async function DomainPage({ params }: DomainPageProps) {
 
             <section>
               <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                Technical themes
+                {site.domainPage.technicalThemes}
               </h2>
               <ul className="mt-4 space-y-3">
                 {domain.technicalThemes.map((theme) => (
@@ -117,7 +118,7 @@ export default async function DomainPage({ params }: DomainPageProps) {
         {related.length > 0 ? (
           <section className="mt-20 border-t border-border pt-12">
             <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-              Other production domains
+              {site.domainPage.relatedTitle}
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {related.map((item) => (

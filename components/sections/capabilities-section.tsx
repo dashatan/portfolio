@@ -1,15 +1,12 @@
 import { SectionLabel } from "@/components/ui/section-label";
 import { capabilities } from "@/content/capabilities";
+import { site } from "@/content/site";
 
 export function CapabilitiesSection() {
   return (
     <section id="capabilities" className="border-b border-border py-20 sm:py-28">
       <div className="section-shell">
-        <SectionLabel
-          index="06 / Capabilities"
-          title="Craft grouped by what I actually do"
-          description="These are not keyword dumps. They reflect the tools, patterns, and problem spaces that recur across my public work and confidential production systems."
-        />
+        <SectionLabel {...site.sections.capabilities} />
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {capabilities.map((group) => (

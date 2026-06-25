@@ -64,3 +64,47 @@ export type ProfileStat = {
   label: string;
   value: string;
 };
+
+export type SectionHeader = {
+  index: string;
+  title: string;
+  description: string;
+};
+
+export type CtaLink = {
+  href: string;
+  label: string;
+};
+
+export type DemoTableRow = {
+  id: string;
+  route: string;
+  status: string;
+  delay: string;
+};
+
+export type ContactChannel = {
+  label: string;
+  display: string;
+  hint: string;
+};
+
+export type SystemsContent = {
+  header: SectionHeader;
+  metrics: ProfileStat[];
+  platformDescription: string;
+  highlights: string[];
+  demo: {
+    panelTitle: string;
+    badge: string;
+    columns: {
+      entity: string;
+      path: string;
+      status: string;
+      render: string;
+    };
+    rows: DemoTableRow[];
+    selectedRowTitle: string;
+    selectedRowDescription: string;
+  };
+};

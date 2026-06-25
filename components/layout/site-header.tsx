@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { navItems } from "@/content/profile";
+import { navItems, profile } from "@/content/profile";
+import { site } from "@/content/site";
 
 export function SiteHeader() {
   const [active, setActive] = useState("intro");
@@ -39,7 +40,7 @@ export function SiteHeader() {
           href="#intro"
           className="font-mono text-xs tracking-[0.24em] text-muted uppercase transition-colors hover:text-accent"
         >
-          AM
+          {profile.name}
         </a>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
@@ -65,7 +66,7 @@ export function SiteHeader() {
           aria-controls="mobile-nav"
           onClick={() => setOpen((value) => !value)}
         >
-          Menu
+          {site.menu}
         </button>
       </div>
 

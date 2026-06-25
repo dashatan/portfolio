@@ -1,15 +1,12 @@
 import { SectionLabel } from "@/components/ui/section-label";
 import { experience } from "@/content/experience";
+import { site } from "@/content/site";
 
 export function ExperienceSection() {
   return (
     <section id="experience" className="border-b border-border py-20 sm:py-28">
       <div className="section-shell">
-        <SectionLabel
-          index="05 / Experience"
-          title="A builder's trajectory"
-          description="Ten years of moving from startup ownership to platform-scale frontend work — with increasing focus on architecture, reusable systems, and production delivery."
-        />
+        <SectionLabel {...site.sections.experience} />
 
         <div className="relative space-y-0">
           <div className="absolute top-2 bottom-2 left-[7px] hidden w-px bg-border sm:block" />

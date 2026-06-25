@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { profile } from "@/content/profile";
+import { site } from "@/content/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -28,7 +29,7 @@ export default function OpenGraphImage() {
             marginBottom: 32,
           }}
         >
-          PORTFOLIO
+          {site.openGraph.eyebrow}
         </div>
         <div
           style={{
@@ -48,7 +49,7 @@ export default function OpenGraphImage() {
             color: "#9494a0",
           }}
         >
-          {profile.name} · systems-minded builder
+          {profile.name} · {site.openGraph.roleLabel}
         </div>
       </div>
     ),

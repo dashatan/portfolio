@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { productionDomains } from "@/content/domains";
 import { getFeaturedProjects } from "@/content/projects";
+import { site } from "@/content/site";
 import { SectionLabel } from "@/components/ui/section-label";
 import type { ProductionDomain, Project } from "@/content/types";
 
@@ -20,7 +21,7 @@ function PublicProjectCard({ project, index }: { project: Project; index: number
             </span>
             {project.flagship ? (
               <span className="rounded-full bg-accent px-2 py-1 font-mono text-[10px] text-background uppercase">
-                Flagship
+                {site.work.flagship}
               </span>
             ) : null}
           </div>
@@ -39,15 +40,15 @@ function PublicProjectCard({ project, index }: { project: Project; index: number
       <div className="flex flex-1 flex-col gap-5 p-6">
         <div className="space-y-3 text-sm leading-relaxed text-muted">
           <p>
-            <span className="text-accent-secondary">Problem · </span>
+            <span className="text-accent-secondary">{site.work.problem} </span>
             {project.problem}
           </p>
           <p>
-            <span className="text-accent">Built · </span>
+            <span className="text-accent">{site.work.built} </span>
             {project.built}
           </p>
           <p>
-            <span className="text-foreground/85">Impact · </span>
+            <span className="text-foreground/85">{site.work.impact} </span>
             {project.impact}
           </p>
         </div>
@@ -69,7 +70,7 @@ function PublicProjectCard({ project, index }: { project: Project; index: number
               href={`/projects/${project.slug}`}
               className="text-sm text-accent transition-opacity group-hover:opacity-80"
             >
-              Full case study →
+              {site.work.fullCaseStudy}
             </Link>
             {project.links?.map((link) => (
               <a
@@ -103,7 +104,7 @@ function DomainCard({ domain }: { domain: ProductionDomain }) {
           className="rounded-full border border-border px-2 py-1 font-mono text-[10px] text-muted uppercase"
           title={domain.constraints}
         >
-          NDA
+          {site.work.nda}
         </span>
       </div>
 
@@ -111,7 +112,7 @@ function DomainCard({ domain }: { domain: ProductionDomain }) {
       <p className="mt-3 text-sm leading-relaxed text-muted">{domain.context}</p>
       <p className="mt-4 text-sm leading-relaxed text-foreground/85">{domain.focus}</p>
       <p className="mt-4 text-sm leading-relaxed text-muted">
-        <span className="text-accent">My role · </span>
+        <span className="text-accent">{site.work.myRole} </span>
         {domain.contribution}
       </p>
 
@@ -139,7 +140,7 @@ function DomainCard({ domain }: { domain: ProductionDomain }) {
         href={`/domains/${domain.slug}`}
         className="mt-auto pt-6 text-sm text-accent transition-opacity hover:opacity-80"
       >
-        Read domain overview →
+        {site.work.domainOverview}
       </Link>
     </article>
   );
@@ -152,11 +153,7 @@ export function WorkSection() {
     <section id="work" className="border-b border-border py-20 sm:py-28">
       <div className="section-shell space-y-20">
         <div>
-          <SectionLabel
-            index="02 / Public work"
-            title="Projects you can explore directly"
-            description="These are the pieces I can show openly: live tools, case studies, and code-shaped work that demonstrate how I think, build, and ship."
-          />
+          <SectionLabel {...site.sections.publicWork} />
 
           <div className="grid gap-5 md:grid-cols-2">
             {publicProjects.map((project, index) => (
@@ -166,11 +163,7 @@ export function WorkSection() {
         </div>
 
         <div>
-          <SectionLabel
-            index="03 / Production domains"
-            title="Confidential systems I've helped build"
-            description="A large part of my strongest work cannot be shown by name. These domain overviews explain the kinds of systems, responsibilities, and technical themes involved — without exposing protected product details."
-          />
+          <SectionLabel {...site.sections.productionDomains} />
 
           <div className="grid gap-5 lg:grid-cols-3">
             {productionDomains.map((domain) => (

@@ -1,10 +1,8 @@
-import type { ProfileStat } from "@/content/types";
+import type { CtaLink, ProfileStat } from "@/content/types";
 
 export const profile = {
   name: "Abbas Mohammadian",
   roleLabel: "Systems-minded software builder",
-  location: "Tehran, Iran · Open to relocation",
-  languages: "Native in two languages · English C1 for technical work",
   headline: "I turn complex domains into scalable web systems.",
   intro:
     "For more than a decade I've built production software where maps, data density, RTL, performance, and architecture matter as much as interface polish. My work sits at the intersection of product engineering and platform thinking — the kind of frontend that has to survive real operators, weak networks, large datasets, and years of iteration.",
@@ -49,6 +47,15 @@ export const profile = {
   },
   education:
     "Self-directed software engineering education backed by continuous production delivery",
+  hero: {
+    howIWork: "How I work",
+    focusAreas: "Typical focus areas",
+    cta: [
+      { href: "#work", label: "Explore selected work" },
+      { href: "#experience", label: "Read experience" },
+      { href: "#contact", label: "Get in touch" },
+    ] satisfies CtaLink[],
+  },
 } as const;
 
 export const navItems = [

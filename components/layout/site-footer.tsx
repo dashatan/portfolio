@@ -1,4 +1,5 @@
 import { profile } from "@/content/profile";
+import { site } from "@/content/site";
 
 export function SiteFooter() {
   return (
@@ -7,10 +8,7 @@ export function SiteFooter() {
         <p className="font-mono text-[11px] tracking-wide text-muted uppercase">
           {profile.name} · {new Date().getFullYear()}
         </p>
-        <p className="max-w-md text-sm text-muted">
-          Built with Next.js, TypeScript, and Tailwind v4 — designed as a product,
-          not a template.
-        </p>
+        <p className="max-w-md text-sm text-muted">{site.footer}</p>
       </div>
     </footer>
   );

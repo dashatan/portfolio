@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { profile } from "@/content/profile";
+import { site } from "@/content/site";
 import "@/app/global.css";
 
 const geistSans = Geist({
@@ -18,19 +19,19 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-dashatan.vercel.app"),
   title: {
-    default: `${profile.name} — Systems-minded builder`,
+    default: `${profile.name} — ${site.metadataTitleSuffix}`,
     template: `%s · ${profile.name}`,
   },
   description: `${profile.intro} ${profile.extendedIntro}`,
   openGraph: {
-    title: `${profile.name} — Systems-minded builder`,
+    title: `${profile.name} — ${site.metadataTitleSuffix}`,
     description: profile.headline,
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — Systems-minded builder`,
+    title: `${profile.name} — ${site.metadataTitleSuffix}`,
     description: profile.headline,
   },
 };

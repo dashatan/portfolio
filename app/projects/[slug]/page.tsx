@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getFeaturedProjects, getProject, projects } from "@/content/projects";
+import { site } from "@/content/site";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -18,7 +19,7 @@ export async function generateMetadata({
   const project = getProject(slug);
 
   if (!project) {
-    return { title: "Project not found" };
+    return { title: site.projectPage.notFound };
   }
 
   return {
@@ -46,7 +47,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           href="/#work"
           className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase transition-colors hover:text-accent"
         >
-          ← Back to work
+          {site.projectPage.backLink}
         </Link>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
@@ -62,14 +63,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="mt-10 space-y-8 text-base leading-relaxed">
               <section>
                 <h2 className="font-mono text-[11px] tracking-[0.22em] text-accent-secondary uppercase">
-                  Problem
+                  {site.projectPage.problem}
                 </h2>
                 <p className="mt-3 text-foreground/90">{project.problem}</p>
               </section>
 
               <section>
                 <h2 className="font-mono text-[11px] tracking-[0.22em] text-accent uppercase">
-                  What I built
+                  {site.projectPage.built}
                 </h2>
                 <p className="mt-3 text-foreground/90">{project.built}</p>
               </section>
@@ -77,7 +78,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {project.approach ? (
                 <section>
                   <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                    Approach
+                    {site.projectPage.approach}
                   </h2>
                   <p className="mt-3 text-foreground/90">{project.approach}</p>
                 </section>
@@ -85,7 +86,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
               <section>
                 <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                  Why it matters
+                  {site.projectPage.impact}
                 </h2>
                 <p className="mt-3 text-foreground/90">{project.impact}</p>
               </section>
@@ -95,7 +96,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <aside className="space-y-5">
             <div className="surface-card p-6">
               <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                Stack
+                {site.projectPage.stack}
               </h2>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {project.stack.map((item) => (
@@ -111,7 +112,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <div className="surface-card p-6">
               <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                Highlights
+                {site.projectPage.highlights}
               </h2>
               <ul className="mt-4 space-y-3 text-sm leading-relaxed text-foreground/90">
                 {project.highlights.map((item) => (
@@ -132,7 +133,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {project.links?.length ? (
               <div className="surface-card p-6">
                 <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                  Links
+                  {site.projectPage.links}
                 </h2>
                 <div className="mt-4 flex flex-wrap gap-3">
                   {project.links.map((link) => (
@@ -155,7 +156,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {related.length > 0 ? (
           <section className="mt-20 border-t border-border pt-12">
             <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-              More selected work
+              {site.projectPage.relatedTitle}
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {related.map((item) => (
