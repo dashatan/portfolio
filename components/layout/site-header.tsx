@@ -8,28 +8,28 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const sections = navItems
-      .map((item) => document.getElementById(item.id))
-      .filter((element): element is HTMLElement => element !== null);
+    const updateActive = () => {
+      const marker = window.innerHeight * 0.3;
+      let next: (typeof navItems)[number]["id"] = navItems[0].id;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visible?.target.id) {
-          setActive(visible.target.id);
+      for (const item of navItems) {
+        const section = document.getElementById(item.id);
+        if (section && section.getBoundingClientRect().top <= marker) {
+          next = item.id;
         }
-      },
-      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.3, 0.6] },
-    );
+      }
 
-    for (const section of sections) {
-      observer.observe(section);
-    }
+      setActive(next);
+    };
 
-    return () => observer.disconnect();
+    updateActive();
+    window.addEventListener("scroll", updateActive, { passive: true });
+    window.addEventListener("resize", updateActive);
+
+    return () => {
+      window.removeEventListener("scroll", updateActive);
+      window.removeEventListener("resize", updateActive);
+    };
   }, []);
 
   return (
