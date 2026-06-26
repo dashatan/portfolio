@@ -38,7 +38,7 @@ export const profile = {
     "Map-heavy and data-dense operational interfaces",
     "Multilingual / RTL product surfaces",
     "Performance work tied to real user pain",
-    "Hands-on code review and convention-setting",
+    "Hands-on code review and convention-setting.",
   ],
   contact: {
     email: "dashatanad@gmail.com",
