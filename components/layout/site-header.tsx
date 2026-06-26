@@ -1,6 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { NavButton } from "@/components/ui/button";
+import { AnchorLink, NavLink } from "@/components/ui/link";
+import { Container } from "@/components/ui/section";
 import { navItems, profile } from "@/content/profile";
 import { site } from "@/content/site";
 
@@ -35,40 +38,28 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/75 backdrop-blur-xl">
-      <div className="section-shell flex h-14 items-center justify-between gap-4">
-        <a
-          href="#intro"
-          className="font-mono text-xs tracking-[0.24em] text-muted uppercase transition-colors hover:text-accent"
-        >
+      <Container className="flex h-14 items-center justify-between gap-4">
+        <AnchorLink href="#intro" variant="logo">
           {profile.name}
-        </a>
+        </AnchorLink>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
           {navItems.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={`rounded-full px-3 py-1.5 font-mono text-[11px] tracking-wide uppercase transition-colors ${
-                active === item.id
-                  ? "bg-accent-dim text-accent"
-                  : "text-muted hover:text-foreground"
-              }`}
-            >
+            <NavLink key={item.id} href={`#${item.id}`} active={active === item.id}>
               {item.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
-        <button
-          type="button"
-          className="rounded-full border border-border px-3 py-1.5 font-mono text-[11px] tracking-wide text-muted uppercase md:hidden"
+        <NavButton
+          className="md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((value) => !value)}
         >
           {site.menu}
-        </button>
-      </div>
+        </NavButton>
+      </Container>
 
       {open ? (
         <nav
@@ -79,13 +70,13 @@ export function SiteHeader() {
           <ul className="flex flex-col gap-2">
             {navItems.map((item) => (
               <li key={item.id}>
-                <a
+                <AnchorLink
                   href={`#${item.id}`}
-                  className="block rounded-lg px-3 py-2 font-mono text-xs tracking-wide text-muted uppercase hover:bg-surface hover:text-foreground"
+                  variant="mobile"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
-                </a>
+                </AnchorLink>
               </li>
             ))}
           </ul>

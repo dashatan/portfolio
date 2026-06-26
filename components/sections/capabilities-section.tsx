@@ -1,34 +1,35 @@
+import { Card } from "@/components/ui/card";
+import { Container, PageSection } from "@/components/ui/section";
 import { SectionLabel } from "@/components/ui/section-label";
+import { Tag } from "@/components/ui/tag";
+import { Eyebrow, Text } from "@/components/ui/typography";
 import { capabilities } from "@/content/capabilities";
 import { site } from "@/content/site";
 
 export function CapabilitiesSection() {
   return (
-    <section id="capabilities" className="border-b border-border py-20 sm:py-28">
-      <div className="section-shell">
+    <PageSection id="capabilities">
+      <Container>
         <SectionLabel {...site.sections.capabilities} />
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {capabilities.map((group) => (
-            <div key={group.title} className="surface-card p-6">
-              <h3 className="font-mono text-[11px] tracking-[0.22em] text-accent uppercase">
-                {group.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{group.description}</p>
+            <Card key={group.title}>
+              <Eyebrow tracking="wide">{group.title}</Eyebrow>
+              <Text variant="muted" className="mt-3">
+                {group.description}
+              </Text>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-full border border-border bg-background/50 px-3 py-1.5 text-sm text-foreground/90"
-                  >
-                    {item}
+                  <li key={item}>
+                    <Tag variant="pill">{item}</Tag>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Card>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </PageSection>
   );
 }

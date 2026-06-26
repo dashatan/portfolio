@@ -1,11 +1,14 @@
+import { BulletItem, BulletList } from "@/components/ui/list";
+import { Container, PageSection } from "@/components/ui/section";
 import { SectionLabel } from "@/components/ui/section-label";
+import { Heading, Text } from "@/components/ui/typography";
 import { experience } from "@/content/experience";
 import { site } from "@/content/site";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="border-b border-border py-20 sm:py-28">
-      <div className="section-shell">
+    <PageSection id="experience">
+      <Container>
         <SectionLabel {...site.sections.experience} />
 
         <div className="relative space-y-0">
@@ -18,32 +21,34 @@ export function ExperienceSection() {
             >
               <div className="relative sm:pl-8">
                 <span className="absolute top-1.5 left-0 hidden h-3.5 w-3.5 rounded-full border border-accent bg-background sm:block" />
-                <p className="font-mono text-xs tracking-wide text-accent">{entry.period}</p>
-                <p className="mt-2 text-sm text-muted">{entry.location}</p>
+                <Text as="p" className="font-mono text-xs tracking-wide text-accent">
+                  {entry.period}
+                </Text>
+                <Text variant="muted" className="mt-2">
+                  {entry.location}
+                </Text>
               </div>
 
               <div>
-                <h3 className="text-xl font-medium">{entry.title}</h3>
-                <p className="mt-1 text-sm text-muted">{entry.company}</p>
-                <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/85">
-                  {entry.summary}
-                </p>
-                <ul className="mt-5 space-y-3">
+                <Heading as="h3" variant="card">
+                  {entry.title}
+                </Heading>
+                <Text variant="muted" className="mt-1">
+                  {entry.company}
+                </Text>
+                <Text className="mt-4 max-w-3xl">{entry.summary}</Text>
+                <BulletList className="mt-5">
                   {entry.highlights.map((highlight) => (
-                    <li
-                      key={highlight}
-                      className="flex gap-3 text-sm leading-relaxed text-muted"
-                    >
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                      <span>{highlight}</span>
-                    </li>
+                    <BulletItem key={highlight} className="text-muted">
+                      {highlight}
+                    </BulletItem>
                   ))}
-                </ul>
+                </BulletList>
               </div>
             </article>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </PageSection>
   );
 }

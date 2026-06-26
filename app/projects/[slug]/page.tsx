@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Card } from "@/components/ui/card";
+import { DetailBlock } from "@/components/ui/detail";
+import { DashItem, DashList } from "@/components/ui/list";
+import { Container, RelatedSection } from "@/components/ui/section";
+import { Tag } from "@/components/ui/tag";
+import { Eyebrow, Heading, Subheading, Text } from "@/components/ui/typography";
+import { ExternalLink, TextLink } from "@/components/ui/link";
 import { getFeaturedProjects, getProject, projects } from "@/content/projects";
 import { site } from "@/content/site";
 
@@ -42,137 +49,111 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <article className="py-16 sm:py-24">
-      <div className="section-shell">
-        <Link
-          href="/#work"
-          className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase transition-colors hover:text-accent"
-        >
+      <Container>
+        <TextLink href="/#work" variant="back">
           {site.projectPage.backLink}
-        </Link>
+        </TextLink>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <p className="font-mono text-[11px] tracking-[0.24em] text-accent uppercase">
-              {project.type}
-            </p>
-            <h1 className="mt-4 text-4xl font-medium tracking-tight sm:text-5xl">
+            <Eyebrow tracking="section">{project.type}</Eyebrow>
+            <Heading variant="page" className="mt-4">
               {project.name}
-            </h1>
-            <p className="mt-4 text-lg text-muted">{project.tagline}</p>
+            </Heading>
+            <Text variant="lead" className="mt-4">
+              {project.tagline}
+            </Text>
 
             <div className="mt-10 space-y-8 text-base leading-relaxed">
-              <section>
-                <h2 className="font-mono text-[11px] tracking-[0.22em] text-accent-secondary uppercase">
-                  {site.projectPage.problem}
-                </h2>
-                <p className="mt-3 text-foreground/90">{project.problem}</p>
-              </section>
+              <DetailBlock title={site.projectPage.problem} tone="secondary">
+                {project.problem}
+              </DetailBlock>
 
-              <section>
-                <h2 className="font-mono text-[11px] tracking-[0.22em] text-accent uppercase">
-                  {site.projectPage.built}
-                </h2>
-                <p className="mt-3 text-foreground/90">{project.built}</p>
-              </section>
+              <DetailBlock title={site.projectPage.built} tone="accent">
+                {project.built}
+              </DetailBlock>
 
               {project.approach ? (
-                <section>
-                  <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                    {site.projectPage.approach}
-                  </h2>
-                  <p className="mt-3 text-foreground/90">{project.approach}</p>
-                </section>
+                <DetailBlock title={site.projectPage.approach}>
+                  {project.approach}
+                </DetailBlock>
               ) : null}
 
-              <section>
-                <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                  {site.projectPage.impact}
-                </h2>
-                <p className="mt-3 text-foreground/90">{project.impact}</p>
-              </section>
+              <DetailBlock title={site.projectPage.impact}>
+                {project.impact}
+              </DetailBlock>
             </div>
           </div>
 
           <aside className="space-y-5">
-            <div className="surface-card p-6">
-              <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                {site.projectPage.stack}
-              </h2>
+            <Card>
+              <Subheading>{site.projectPage.stack}</Subheading>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {project.stack.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-full border border-border px-3 py-1.5 text-sm"
-                  >
-                    {item}
+                  <li key={item}>
+                    <Tag variant="stack">{item}</Tag>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Card>
 
-            <div className="surface-card p-6">
-              <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                {site.projectPage.highlights}
-              </h2>
-              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-foreground/90">
+            <Card>
+              <Subheading>{site.projectPage.highlights}</Subheading>
+              <DashList className="mt-4">
                 {project.highlights.map((item) => (
-                  <li key={item} className="flex gap-3">
-                    <span className="text-accent">—</span>
-                    <span>{item}</span>
-                  </li>
+                  <DashItem key={item}>{item}</DashItem>
                 ))}
-              </ul>
-            </div>
+              </DashList>
+            </Card>
 
             {project.visualNote ? (
-              <div className="surface-card border-dashed p-6 text-sm text-muted">
-                {project.visualNote}
-              </div>
+              <Card dashed>
+                <Text variant="muted">{project.visualNote}</Text>
+              </Card>
             ) : null}
 
             {project.links?.length ? (
-              <div className="surface-card p-6">
-                <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-                  {site.projectPage.links}
-                </h2>
+              <Card>
+                <Subheading>{site.projectPage.links}</Subheading>
                 <div className="mt-4 flex flex-wrap gap-3">
                   {project.links.map((link) => (
-                    <a
+                    <ExternalLink
                       key={link.href}
                       href={link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm text-accent hover:underline"
+                      className="text-accent hover:underline"
                     >
-                      {link.label} ↗
-                    </a>
+                      {link.label}
+                    </ExternalLink>
                   ))}
                 </div>
-              </div>
+              </Card>
             ) : null}
           </aside>
         </div>
 
         {related.length > 0 ? (
-          <section className="mt-20 border-t border-border pt-12">
-            <h2 className="font-mono text-[11px] tracking-[0.22em] text-muted uppercase">
-              {site.projectPage.relatedTitle}
-            </h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <RelatedSection title={site.projectPage.relatedTitle}>
+            <div className="grid gap-4 md:grid-cols-3">
               {related.map((item) => (
-                <Link
+                <Card
                   key={item.slug}
+                  as={Link}
                   href={`/projects/${item.slug}`}
-                  className="surface-card p-5 transition-transform hover:-translate-y-1"
+                  interactive
+                  padding="md"
                 >
-                  <p className="text-lg font-medium">{item.name}</p>
-                  <p className="mt-2 text-sm text-muted">{item.tagline}</p>
-                </Link>
+                  <Heading as="p" variant="card" className="text-lg">
+                    {item.name}
+                  </Heading>
+                  <Text variant="muted" className="mt-2">
+                    {item.tagline}
+                  </Text>
+                </Card>
               ))}
             </div>
-          </section>
+          </RelatedSection>
         ) : null}
-      </div>
+      </Container>
     </article>
   );
 }

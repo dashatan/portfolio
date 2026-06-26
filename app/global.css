@@ -12,6 +12,7 @@
   --accent-secondary: #fbbf24;
   --grid: rgba(255, 255, 255, 0.04);
   --scan: rgba(94, 234, 212, 0.06);
+  --header-height: 3.5rem;
 }
 
 @theme inline {
@@ -32,6 +33,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
   }
 
   @media (prefers-reduced-motion: reduce) {

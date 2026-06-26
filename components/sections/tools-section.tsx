@@ -1,43 +1,49 @@
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { DashItem, DashList } from "@/components/ui/list";
+import { Container, PageSection } from "@/components/ui/section";
 import { SectionLabel } from "@/components/ui/section-label";
+import { Heading, Text } from "@/components/ui/typography";
 import { site } from "@/content/site";
 import { tools } from "@/content/tools";
 
 export function ToolsSection() {
   return (
-    <section id="tools" className="border-b border-border py-20 sm:py-28">
-      <div className="section-shell">
+    <PageSection id="tools">
+      <Container>
         <SectionLabel {...site.sections.tools} />
 
         <div className="grid gap-4 md:grid-cols-2">
           {tools.map((tool) => (
-            <article key={tool.name} className="surface-card p-6">
-              <h3 className="text-xl font-medium">{tool.name}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{tool.description}</p>
-              <ul className="mt-5 space-y-2">
+            <Card key={tool.name} as="article">
+              <Heading as="h3" variant="card">
+                {tool.name}
+              </Heading>
+              <Text variant="muted" className="mt-3">
+                {tool.description}
+              </Text>
+              <DashList className="mt-5">
                 {tool.details.map((detail) => (
-                  <li key={detail} className="flex gap-3 text-sm leading-relaxed text-foreground/85">
-                    <span className="text-accent">—</span>
-                    <span>{detail}</span>
-                  </li>
+                  <DashItem key={detail}>{detail}</DashItem>
                 ))}
-              </ul>
+              </DashList>
               <div className="mt-5 flex flex-wrap gap-3">
                 {tool.links.map((link) => (
-                  <a
+                  <Button
                     key={link.href}
                     href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center rounded-full border border-border px-4 py-2 text-sm text-accent transition-colors hover:border-accent/40"
+                    variant="outline"
+                    external
+                    className="px-4 py-2"
                   >
                     {link.label} ↗
-                  </a>
+                  </Button>
                 ))}
               </div>
-            </article>
+            </Card>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </PageSection>
   );
 }
