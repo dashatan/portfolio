@@ -6,9 +6,9 @@ type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 
 const buttonVariantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent text-background font-medium transition-transform hover:scale-[1.02]",
+    "bg-accent-dim text-background font-medium transition-all hover:bg-accent-dim/80",
   secondary:
-    "border border-border text-foreground transition-colors hover:border-accent/40 hover:text-accent",
+    "border border-accent-dim bg-accent-dim/5 text-foreground transition-colors hover:bg-accent-dim/10 ",
   outline:
     "border border-border text-accent transition-colors hover:border-accent/40",
   ghost:
@@ -32,8 +32,7 @@ type ButtonAsLink = ButtonBaseProps &
 
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
-const baseClasses =
-  "inline-flex items-center rounded-full px-5 py-2.5 text-sm";
+const baseClasses = "inline-flex items-center rounded-full px-5 py-2.5 text-sm";
 
 export function Button({
   variant = "secondary",
@@ -62,7 +61,11 @@ export function Button({
 
     if (href.startsWith("#")) {
       return (
-        <a href={href} className={classes} {...(linkProps as ComponentPropsWithoutRef<"a">)}>
+        <a
+          href={href}
+          className={classes}
+          {...(linkProps as ComponentPropsWithoutRef<"a">)}
+        >
           {children}
         </a>
       );
