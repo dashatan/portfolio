@@ -20,9 +20,9 @@ function PublicProjectCard({ project, index }: { project: Project; index: number
       padding="none"
       interactive
       overflow
-      className={`group flex h-full flex-col ${project.flagship ? "lg:col-span-2" : ""}`}
+      className={`group flex h-full flex-col`}
     >
-      <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-[linear-gradient(135deg,rgba(94,234,212,0.08),rgba(251,191,36,0.05))]">
+      <div className="relative aspect-16/10 overflow-hidden border-b border-border bg-[linear-gradient(135deg,rgba(94,234,212,0.08),rgba(251,191,36,0.05))]">
         <GridOverlay />
         <div className="absolute inset-0 flex flex-col justify-between p-5">
           <div className="flex items-start justify-between gap-3">
@@ -40,11 +40,6 @@ function PublicProjectCard({ project, index }: { project: Project; index: number
             </Text>
           </div>
         </div>
-        {project.visualNote ? (
-          <VisualNote className="absolute right-4 bottom-4 left-4">
-            {project.visualNote}
-          </VisualNote>
-        ) : null}
       </div>
 
       <div className="flex flex-1 flex-col gap-5 p-6">
@@ -141,7 +136,7 @@ export function WorkSection() {
         <div>
           <SectionLabel {...site.sections.publicWork} />
 
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-3">
             {publicProjects.map((project, index) => (
               <PublicProjectCard key={project.slug} project={project} index={index} />
             ))}
