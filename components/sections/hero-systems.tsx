@@ -2,12 +2,7 @@ import { GridField } from "@/components/effects/grid-field";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { DemoDataTable } from "@/components/ui/demo-data-table";
-import {
-  BulletItem,
-  BulletList,
-  DotList,
-  DotListItem,
-} from "@/components/ui/list";
+import { BulletItem, BulletList, DotList, DotListItem } from "@/components/ui/list";
 import { Container, PageSection } from "@/components/ui/section";
 import { SectionLabel } from "@/components/ui/section-label";
 import { StatCard } from "@/components/ui/stat-card";
@@ -45,11 +40,7 @@ export function HeroSection() {
                 <ul className="mt-4 space-y-4">
                   {profile.principles.map((principle) => (
                     <li key={principle.title}>
-                      <Text
-                        as="p"
-                        variant="muted"
-                        className="font-medium text-foreground"
-                      >
+                      <Text as="p" variant="muted" className="font-medium text-foreground">
                         {principle.title}
                       </Text>
                       <Text variant="muted" className="mt-1">
@@ -62,11 +53,7 @@ export function HeroSection() {
 
               <div className="grid grid-cols-2 gap-3">
                 {profile.stats.map((stat) => (
-                  <StatCard
-                    key={stat.label}
-                    label={stat.label}
-                    value={stat.value}
-                  />
+                  <StatCard key={stat.label} label={stat.label} value={stat.value} />
                 ))}
               </div>
             </div>

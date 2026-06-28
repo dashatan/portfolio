@@ -15,11 +15,7 @@ export function ContactSection() {
       <Container>
         <Card padding="none" overflow>
           <GridPanel variant="header">
-            <SectionLabel
-              {...contactSection}
-              className="mb-0 sm:mb-0"
-              titleClassName="mt-4"
-            />
+            <SectionLabel {...contactSection} className="mb-0 sm:mb-0" titleClassName="mt-4" />
           </GridPanel>
 
           <div className="grid gap-4 px-6 py-8 sm:grid-cols-3 sm:px-10">

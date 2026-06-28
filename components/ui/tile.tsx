@@ -10,14 +10,7 @@ type TileProps = {
   className?: string;
 };
 
-export function Tile({
-  href,
-  label,
-  value,
-  hint,
-  external = false,
-  className,
-}: TileProps) {
+export function Tile({ href, label, value, hint, external = false, className }: TileProps) {
   return (
     <a
       href={href}

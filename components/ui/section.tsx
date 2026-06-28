@@ -10,12 +10,7 @@ export function Container({ className, children }: ContainerProps) {
   return <div className={cn("section-shell", className)}>{children}</div>;
 }
 
-type PageSectionSpacing =
-  | "default"
-  | "hero"
-  | "contact"
-  | "detail"
-  | "not-found";
+type PageSectionSpacing = "default" | "hero" | "contact" | "detail" | "not-found";
 
 const spacingClasses: Record<PageSectionSpacing, string> = {
   default: "border-b border-border py-10 px-4 sm:px-8",
@@ -51,11 +46,7 @@ type RelatedSectionProps = {
   children: React.ReactNode;
 };
 
-export function RelatedSection({
-  title,
-  className,
-  children,
-}: RelatedSectionProps) {
+export function RelatedSection({ title, className, children }: RelatedSectionProps) {
   return (
     <section className={cn("mt-20 border-t border-border pt-12", className)}>
       <Subheading className="mb-6">{title}</Subheading>

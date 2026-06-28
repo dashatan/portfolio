@@ -27,10 +27,7 @@ export function SectionLabel({
         {title}
       </Heading>
       {description ? (
-        <Text
-          variant="body"
-          className={cn("max-w-2xl text-muted", descriptionClassName)}
-        >
+        <Text variant="body" className={cn("max-w-2xl text-muted", descriptionClassName)}>
           {description}
         </Text>
       ) : null}

@@ -69,11 +69,7 @@ type SubheadingProps = {
   children: React.ReactNode;
 };
 
-export function Subheading({
-  tone = "muted",
-  className,
-  children,
-}: SubheadingProps) {
+export function Subheading({ tone = "muted", className, children }: SubheadingProps) {
   return (
     <h2
       className={cn(
@@ -114,10 +110,7 @@ export function Heading<T extends ElementType = "h1">({
   const Component = as ?? (variant === "section" ? "h2" : "h1");
 
   return (
-    <Component
-      className={cn(headingVariantClasses[variant], className)}
-      {...props}
-    >
+    <Component className={cn(headingVariantClasses[variant], className)} {...props}>
       {children}
     </Component>
   );

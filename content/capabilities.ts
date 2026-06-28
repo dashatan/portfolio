@@ -63,8 +63,7 @@ export const capabilities: CapabilityGroup[] = [
   },
   {
     title: "Domains I know in production",
-    description:
-      "Problem spaces where I have real delivery history, not portfolio fiction.",
+    description: "Problem spaces where I have real delivery history, not portfolio fiction.",
     items: [
       "Transport and logistics",
       "Traffic intelligence",

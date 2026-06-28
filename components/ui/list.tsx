@@ -15,10 +15,13 @@ type BulletItemProps = {
 
 export function BulletItem({ tone = "accent", className, children }: BulletItemProps) {
   return (
-    <li className={cn("flex items-start gap-3 text-sm leading-relaxed text-foreground/90", className)}>
-      <span
-        className={cn("mt-2 h-1.5 w-1.5 shrink-0 rounded-full", bulletToneClasses[tone])}
-      />
+    <li
+      className={cn(
+        "flex items-start gap-3 text-sm leading-relaxed text-foreground/90",
+        className,
+      )}
+    >
+      <span className={cn("mt-2 h-1.5 w-1.5 shrink-0 rounded-full", bulletToneClasses[tone])} />
       <span>{children}</span>
     </li>
   );

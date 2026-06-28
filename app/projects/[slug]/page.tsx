@@ -19,9 +19,7 @@ export async function generateStaticParams() {
   return getFeaturedProjects().map((project) => ({ slug: project.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: ProjectPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
 
@@ -74,14 +72,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </DetailBlock>
 
               {project.approach ? (
-                <DetailBlock title={site.projectPage.approach}>
-                  {project.approach}
-                </DetailBlock>
+                <DetailBlock title={site.projectPage.approach}>{project.approach}</DetailBlock>
               ) : null}
 
-              <DetailBlock title={site.projectPage.impact}>
-                {project.impact}
-              </DetailBlock>
+              <DetailBlock title={site.projectPage.impact}>{project.impact}</DetailBlock>
             </div>
           </div>
 

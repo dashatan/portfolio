@@ -59,21 +59,15 @@ export default async function DomainPage({ params }: DomainPageProps) {
           <Callout className="mt-4">{domain.constraints}</Callout>
 
           <div className="mt-10 space-y-8 text-base leading-relaxed">
-            <DetailBlock title={site.domainPage.context}>
-              {domain.context}
-            </DetailBlock>
+            <DetailBlock title={site.domainPage.context}>{domain.context}</DetailBlock>
 
-            <DetailBlock title={site.domainPage.focus}>
-              {domain.focus}
-            </DetailBlock>
+            <DetailBlock title={site.domainPage.focus}>{domain.focus}</DetailBlock>
 
             <DetailBlock title={site.domainPage.contribution} tone="accent">
               {domain.contribution}
             </DetailBlock>
 
-            <DetailBlock title={site.domainPage.approach}>
-              {domain.approach}
-            </DetailBlock>
+            <DetailBlock title={site.domainPage.approach}>{domain.approach}</DetailBlock>
 
             <DetailBlock title={site.domainPage.outcomes} tone="secondary">
               <DashList>

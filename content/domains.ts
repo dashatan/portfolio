@@ -82,8 +82,7 @@ export const productionDomains: ProductionDomain[] = [
       "Offline-aware client patterns",
       "Cross-platform delivery history",
     ],
-    constraints:
-      "Specific product branding and client assets are omitted.",
+    constraints: "Specific product branding and client assets are omitted.",
   },
 ];
 

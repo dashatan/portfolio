@@ -29,9 +29,7 @@ function PublicProjectCard({ project, index }: { project: Project; index: number
             <Eyebrow tone="muted" size="xs" tracking="wide">
               {project.type}
             </Eyebrow>
-            {project.flagship ? (
-              <Badge variant="solid">{site.work.flagship}</Badge>
-            ) : null}
+            {project.flagship ? <Badge variant="solid">{site.work.flagship}</Badge> : null}
           </div>
           <div>
             <Heading as="p" variant="card-lg">
@@ -43,7 +41,7 @@ function PublicProjectCard({ project, index }: { project: Project; index: number
           </div>
         </div>
         {project.visualNote ? (
-          <VisualNote className="absolute bottom-4 left-4 right-4">
+          <VisualNote className="absolute right-4 bottom-4 left-4">
             {project.visualNote}
           </VisualNote>
         ) : null}
@@ -72,10 +70,7 @@ function PublicProjectCard({ project, index }: { project: Project; index: number
 
         <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-2">
           <div className="flex flex-wrap gap-4">
-            <TextLink
-              href={`/projects/${project.slug}`}
-              className="group-hover:opacity-80"
-            >
+            <TextLink href={`/projects/${project.slug}`} className="group-hover:opacity-80">
               {site.work.fullCaseStudy}
             </TextLink>
             {project.links?.map((link) => (

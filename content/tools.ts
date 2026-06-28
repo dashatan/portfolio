@@ -11,9 +11,7 @@ export const tools: ToolEntry[] = [
       "Hover translation for technical terms during review",
       "Generated from structured markdown source content",
     ],
-    links: [
-      { label: "Open live", href: "https://resumes-silk.vercel.app/flashcards" },
-    ],
+    links: [{ label: "Open live", href: "https://resumes-silk.vercel.app/flashcards" }],
   },
   {
     name: "Resume editor & PDF pipeline",
@@ -25,8 +23,6 @@ export const tools: ToolEntry[] = [
       "Puppeteer-based build pipeline for repeatable output",
       "Deployed with serverless API routes and static UI",
     ],
-    links: [
-      { label: "Open editor", href: "https://resumes-silk.vercel.app" },
-    ],
+    links: [{ label: "Open editor", href: "https://resumes-silk.vercel.app" }],
   },
 ];

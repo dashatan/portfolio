@@ -13,9 +13,7 @@ const gridPanelVariantClasses: Record<NonNullable<GridPanelProps["variant"]>, st
 
 export function GridPanel({ variant = "default", className, children }: GridPanelProps) {
   return (
-    <div className={cn("grid-bg", gridPanelVariantClasses[variant], className)}>
-      {children}
-    </div>
+    <div className={cn("grid-bg", gridPanelVariantClasses[variant], className)}>{children}</div>
   );
 }
 
@@ -24,7 +22,7 @@ type GridOverlayProps = {
 };
 
 export function GridOverlay({ className }: GridOverlayProps) {
-  return <div className={cn("grid-bg absolute inset-0 opacity-80", className)} />;
+  return <div className={cn("absolute inset-0 grid-bg opacity-80", className)} />;
 }
 
 type InsetPanelProps = {

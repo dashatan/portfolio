@@ -6,6 +6,6 @@ export default {
   singleQuote: false,
   tabWidth: 2,
   trailingComma: "all",
-  printWidth: 110,
+  printWidth: 96,
   endOfLine: "lf",
 };

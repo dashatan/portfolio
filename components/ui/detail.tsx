@@ -7,12 +7,7 @@ type DetailBlockProps = {
   children: React.ReactNode;
 };
 
-export function DetailBlock({
-  title,
-  tone = "muted",
-  className,
-  children,
-}: DetailBlockProps) {
+export function DetailBlock({ title, tone = "muted", className, children }: DetailBlockProps) {
   return (
     <section className={className}>
       <Subheading tone={tone}>{title}</Subheading>
@@ -28,12 +23,7 @@ type LabeledTextProps = {
   children: React.ReactNode;
 };
 
-export function LabeledText({
-  label,
-  labelClassName,
-  className,
-  children,
-}: LabeledTextProps) {
+export function LabeledText({ label, labelClassName, className, children }: LabeledTextProps) {
   return (
     <Text variant="muted" className={className}>
       <span className={labelClassName}>{label} </span>

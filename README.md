@@ -38,14 +38,14 @@ Or connect the repo to Vercel for automatic deployments.
 
 Editable content lives in:
 
-| Path | Purpose |
-|------|---------|
-| `content/profile.ts` | Identity, nav, contact |
-| `content/domains.ts` | NDA-safe production domain summaries |
-| `content/projects.ts` | Public project case studies |
-| `content/experience.ts` | Timeline |
-| `content/capabilities.ts` | Skill groups |
-| `content/tools.ts` | Meta-tools links |
+| Path                      | Purpose                              |
+| ------------------------- | ------------------------------------ |
+| `content/profile.ts`      | Identity, nav, contact               |
+| `content/domains.ts`      | NDA-safe production domain summaries |
+| `content/projects.ts`     | Public project case studies          |
+| `content/experience.ts`   | Timeline                             |
+| `content/capabilities.ts` | Skill groups                         |
+| `content/tools.ts`        | Meta-tools links                     |
 
 ## TODO assets
 

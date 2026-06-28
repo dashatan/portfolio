@@ -5,12 +5,10 @@ import { cn } from "@/lib/cn";
 type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 
 const buttonVariantClasses: Record<ButtonVariant, string> = {
-  primary:
-    "bg-accent-dim text-background font-medium transition-all hover:bg-accent-dim/80",
+  primary: "bg-accent-dim text-foreground font-medium transition-all hover:bg-accent-dim/80",
   secondary:
-    "border border-accent-dim bg-accent-dim/5 text-foreground transition-colors hover:bg-accent-dim/10 ",
-  outline:
-    "border border-border text-accent transition-colors hover:border-accent/40",
+    "border border-accent-dim bg-accent-dim/5 text-foreground transition-colors hover:bg-accent-dim/20 ",
+  outline: "border border-border text-accent transition-colors hover:border-accent/40",
   ghost:
     "border border-border text-muted transition-colors hover:border-accent/40 hover:text-accent",
 };
@@ -34,12 +32,7 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const baseClasses = "inline-flex items-center rounded-full px-5 py-2.5 text-sm";
 
-export function Button({
-  variant = "secondary",
-  className,
-  children,
-  ...props
-}: ButtonProps) {
+export function Button({ variant = "secondary", className, children, ...props }: ButtonProps) {
   const classes = cn(baseClasses, buttonVariantClasses[variant], className);
 
   if ("href" in props && props.href) {
@@ -61,11 +54,7 @@ export function Button({
 
     if (href.startsWith("#")) {
       return (
-        <a
-          href={href}
-          className={classes}
-          {...(linkProps as ComponentPropsWithoutRef<"a">)}
-        >
+        <a href={href} className={classes} {...(linkProps as ComponentPropsWithoutRef<"a">)}>
           {children}
         </a>
       );

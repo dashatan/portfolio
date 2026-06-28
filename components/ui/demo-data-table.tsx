@@ -56,10 +56,11 @@ export function DemoDataTable({
               type="button"
               onClick={() => setActiveIndex(index)}
               className={cn(
-                "grid w-full grid-cols-[1.1fr_1fr_auto_auto] gap-3 border-b border-border px-4 py-3 text-left text-sm transition-colors last:border-b-0",
+                "grid w-full grid-cols-[1.1fr_1fr_auto_auto] gap-3 border-b",
+                "border-border px-4 py-3 text-left text-sm transition-colors last:border-b-0",
                 activeIndex === index
-                  ? "bg-accent-dim text-foreground"
-                  : "text-muted hover:bg-surface-elevated hover:text-foreground",
+                  ? "bg-accent/20"
+                  : "text-muted hover:bg-surface-elevated/70 hover:text-foreground",
               )}
             >
               <span className="font-mono text-xs">{row.id}</span>

@@ -5,29 +5,29 @@
    Using Tailwind color variables
    ============================================ */
 @theme {
-  /* Core semantic colors - using Tailwind's neutral scale for UI */
-  --color-background: var(--color-neutral-950); /* neutral-950 - deep void */
-  --color-foreground: var(--color-neutral-200); /* neutral-200 - readable on dark */
-  --color-background-secondary: var(--color-slate-900); /* slate-900 - subtle elevation */
+  /* Core semantic colors - using Tailwind's gray scale for UI */
+  --color-background: var(--color-gray-900); /* gray-900 - deep void */
+  --color-foreground: var(--color-gray-300); /* gray-300 - readable on dark */
+  --color-background-secondary: var(--color-gray-800); /* gray-80 - subtle elevation */
 
   /* Surface hierarchy - clear depth perception */
-  --color-surface: var(--color-neutral-900); /* neutral-900 - base cards */
-  --color-surface-elevated: var(--color-neutral-800); /* neutral-800 - raised elements */
-  --color-surface-hovered: var(--color-neutral-700); /* neutral-750 - interactive hover */
+  --color-surface: var(--color-gray-900); /* gray-90 - base cards */
+  --color-surface-elevated: var(--color-gray-800); /* gray-800 - raised elements */
+  --color-surface-hovered: var(--color-gray-700); /* gray-750 - interactive hover */
 
   /* Utility colors */
-  --color-muted: var(--color-neutral-400); /* neutral-400 - secondary text */
-  --color-border: var(--color-neutral-800); /* neutral-800 - subtle boundaries */
-  --color-border-strong: var(--color-neutral-700); /* neutral-700 - focus states */
+  --color-muted: var(--color-gray-400); /* gray-400 - secondary text */
+  --color-border: var(--color-gray-800); /* gray-800 - subtle boundaries */
+  --color-border-strong: var(--color-gray-700); /* gray-700 - focus states */
 
   /* Accent system - teal/cyan for dark mode visibility */
-  --color-accent: var(--color-teal-200); /* teal-200 - primary accent */
-  --color-accent-dim: var(--color-teal-400); /* teal-400 - secondary accent */
-  --color-accent-secondary: var(--color-blue-300); /* blue-300 - complementary */
+  --color-accent: var(--color-gray-400); /* gray-200 - primary accent */
+  --color-accent-dim: var(--color-gray-900); /* gray-400 - secondary accent */
+  --color-accent-secondary: var(--color-gray-300); /* gray-300 - complementary */
 
   /* Semantic accent backgrounds */
-  --color-accent-subtle: var(--color-teal-950); /* teal-950 - subtle fills */
-  --color-accent-muted: var(--color-teal-900); /* teal-900 - interactive bg */
+  --color-accent-subtle: var(--color-gray-950); /* gray-950 - subtle fills */
+  --color-accent-muted: var(--color-gray-900); /* gray-900 - interactive bg */
 
   /* Radius tokens */
   --radius-sm: 0.375rem;
@@ -78,20 +78,20 @@
 
   /* Color+alpha tokens expressed via Tailwind colors */
   --color-selection-bg: color-mix(in oklab, var(--color-accent-dim) 30%, transparent);
-  --color-shadow-accent: color-mix(in oklab, var(--color-neutral-950) 25%, transparent);
+  --color-shadow-accent: color-mix(in oklab, var(--color-gray-950) 25%, transparent);
   --color-accent-border: color-mix(in oklab, var(--color-accent-dim) 30%, transparent);
   --color-accent-border-hover: color-mix(in oklab, var(--color-accent-dim) 50%, transparent);
 
-  --color-grid-line: color-mix(in oklab, var(--color-neutral-50) 3%, transparent);
-  --color-grid-line-dense: color-mix(in oklab, var(--color-neutral-50) 5%, transparent);
-  --color-dot-line: color-mix(in oklab, var(--color-neutral-50) 8%, transparent);
+  --color-grid-line: color-mix(in oklab, var(--color-gray-50) 3%, transparent);
+  --color-grid-line-dense: color-mix(in oklab, var(--color-gray-50) 5%, transparent);
+  --color-dot-line: color-mix(in oklab, var(--color-gray-50) 8%, transparent);
 
   --color-scanline-1: color-mix(in oklab, var(--color-accent-dim) 8%, transparent);
   --color-scanline-2: color-mix(in oklab, var(--color-accent-dim) 15%, transparent);
 
   --color-glow-1: color-mix(in oklab, var(--color-accent-dim) 15%, transparent);
   --color-glow-2: color-mix(in oklab, var(--color-accent-dim) 5%, transparent);
-  --color-glow-soft: color-mix(in oklab, var(--color-neutral-50) 5%, transparent);
+  --color-glow-soft: color-mix(in oklab, var(--color-gray-50) 5%, transparent);
 
   /* Glow sizes */
   --glow-1-size: 20px;
@@ -248,7 +248,11 @@
 @utility grid-bg-dense {
   background-image:
     linear-gradient(var(--color-grid-line-dense) var(--space-px), transparent var(--space-px)),
-    linear-gradient(90deg, var(--color-grid-line-dense) var(--space-px), transparent var(--space-px));
+    linear-gradient(
+      90deg,
+      var(--color-grid-line-dense) var(--space-px),
+      transparent var(--space-px)
+    );
   background-size: var(--pattern-grid-size-dense) var(--pattern-grid-size-dense);
 }
 

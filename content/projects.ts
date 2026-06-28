@@ -106,13 +106,7 @@ export const projects: Project[] = [
     name: "Resume tooling",
     tagline: "Editor, PDF pipeline & interview flashcards",
     type: "Personal meta-engineering",
-    stack: [
-      "Node.js",
-      "Puppeteer",
-      "Vanilla JS",
-      "Tailwind CDN",
-      "Vercel serverless",
-    ],
+    stack: ["Node.js", "Puppeteer", "Vanilla JS", "Tailwind CDN", "Vercel serverless"],
     problem:
       "Maintaining multiple resume variants, localized PDF output, and interview prep in separate documents created friction every time I updated content or targeted a different role/market.",
     built:

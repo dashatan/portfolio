@@ -15,12 +15,7 @@ type BadgeProps = {
   children: React.ReactNode;
 };
 
-export function Badge({
-  variant = "outline",
-  title,
-  className,
-  children,
-}: BadgeProps) {
+export function Badge({ variant = "outline", title, className, children }: BadgeProps) {
   return (
     <span
       title={title}

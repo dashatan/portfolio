@@ -35,7 +35,7 @@ export function Card<T extends ElementType = "div">({
   return (
     <Component
       className={cn(
-        "surface-card",
+        "cursor-default surface-card",
         paddingClasses[padding],
         interactive && "transition-transform duration-300 hover:-translate-y-1",
         dashed && "border-dashed",
