@@ -3,62 +3,163 @@ import type { SystemsContent } from "@/content/types";
 export const systems: SystemsContent = {
   header: {
     index: "04 / Systems",
-    title: "Where repeated complexity becomes reusable craft",
+    title: "How I design frontend systems that teams can scale",
     description:
-      "dash-comps is my public component platform — typed primitives, compound widgets, core utilities, and a live showcase for the kind of systems I build under NDA elsewhere. It is how I make complex UI legible to a team: cataloged, typed, tested in isolation, and composed in production features.",
+      "Senior frontend work is not only feature delivery — it is architecture, reusable foundations, typed contracts, performance strategy, and delivery standards that keep complex products maintainable as teams and domains grow.",
   },
   metrics: [
-    { label: "Components", value: "40+" },
-    { label: "Locales", value: "en / fa / ar" },
-    { label: "Layers", value: "core · ui · styles" },
-    { label: "Showcase", value: "Vite app" },
+    { label: "Architecture scope", value: "Feature → Platform" },
+    { label: "Ownership mode", value: "Design · Ship · Operate" },
+    { label: "Product shape", value: "Maps · Tables · RTL" },
+    { label: "Team impact", value: "Standards · Review · Velocity" },
   ],
   platformDescription:
-    "The platform includes an enterprise table for massive datasets, a GPS tracker with playback engine, localized date and structured inputs, location picking, dashboard shells, and chart/map integrations — with third-party libraries kept at primitive boundaries.",
-  highlights: [
-    "Worker-backed tracker remapping for smoother playback on large traces",
-    "RTL-ready compound inputs and locale validation across markets",
-    "Showcase-driven catalog workflow for documenting behavior, not just visuals",
-    "Shared patterns reused across confidential production platforms",
-    "Monorepo separation between styles, core logic, primitives, and compounds",
+    "I treat frontend as a long-lived platform: feature modules with clear boundaries, compound component layers that absorb repeated UI complexity, typed validation from API to form, and state flows that stay predictable as products add operational modules. The goal is parallel delivery without drift — whether the surface is a public design-system catalog, a fleet admin SPA, or a confidential map-heavy product used daily under load.",
+  pillars: [
+    {
+      title: "Modular architecture",
+      description:
+        "Feature-owned modules, thin routes, and infrastructure ports so business domains do not entangle shared foundations.",
+      items: [
+        "Hexagonal and layered frontend structure",
+        "Repository ports and thin data adapters",
+        "Monorepo package boundaries (pnpm, Turborepo)",
+        "Conventions that support parallel team delivery",
+      ],
+    },
+    {
+      title: "Reusable UI platforms",
+      description:
+        "Design systems and compound components that turn repeated operational patterns into catalog-ready building blocks.",
+      items: [
+        "40+ component categories across primitives and compounds",
+        "Storybook, showcase apps, and catalog-driven validation",
+        "Radix-based accessible interaction primitives",
+        "Tables, maps, trackers, forms, and dashboard shells",
+      ],
+    },
+    {
+      title: "Typed data boundaries",
+      description:
+        "Contracts and validation that make incorrect states hard to build and safer to refactor across the stack.",
+      items: [
+        "Zod schemas shared between API and admin clients",
+        "React Hook Form resolvers and feature-level DTOs",
+        "TanStack Query server-state orchestration",
+        "OpenAPI codegen and typed REST client boundaries",
+      ],
+    },
+    {
+      title: "Performance under load",
+      description:
+        "Optimization tied to real operator pain — large datasets, map workflows, long sessions, and weak networks.",
+      items: [
+        "Virtualized lists and enterprise table pagination",
+        "Map and tracker engines isolated at primitive boundaries",
+        "Web Worker patterns for heavy trace remapping",
+        "Bundle strategy, render cost control, and Core Web Vitals",
+      ],
+    },
+    {
+      title: "Quality and delivery",
+      description:
+        "Engineering discipline that keeps releases stable as complexity grows — not bolted on after features ship.",
+      items: [
+        "Unit and E2E coverage (Vitest, Playwright, Testing Library)",
+        "CI/CD pipelines, Docker builds, and release readiness",
+        "Sentry observability and production debugging mindset",
+        "Code review, Husky hooks, and team-wide conventions",
+      ],
+    },
+    {
+      title: "Operational product UX",
+      description:
+        "Interfaces built for daily use in complex domains — not presentation layers added at the end.",
+      items: [
+        "Map-first and data-dense admin workflows",
+        "RTL, Persian/Jalali inputs, and multilingual surfaces",
+        "RBAC-heavy operator tools and export-heavy reporting",
+        "Accessibility fundamentals and responsive density",
+      ],
+    },
   ],
   demo: {
-    panelTitle: "Live fragment · data table",
-    badge: "interactive",
+    panelTitle: "System ownership matrix",
+    badge: "senior scope",
     columns: {
-      entity: "Entity",
-      path: "Path",
-      status: "Status",
-      render: "Render",
+      entity: "Area",
+      path: "System layer",
+      status: "Depth",
+      render: "Outcome",
     },
     rows: [
       {
-        id: "NODE-042",
-        route: "Region A → Region C",
-        status: "Active",
-        delay: "0.4s",
+        id: "ARCH-001",
+        route: "Frontend architecture",
+        status: "Lead",
+        delay: "Scalable module boundaries",
+        detail:
+          "Feature modules, route shells, domain ports, and shared package tiers — so new operational surfaces plug in without rewriting foundations.",
       },
       {
-        id: "NODE-118",
-        route: "Region B → Region E",
-        status: "Queued",
-        delay: "1.1s",
+        id: "COMP-014",
+        route: "Component platforms",
+        status: "Lead",
+        delay: "Less duplicated UI work",
+        detail:
+          "Compound components, design-system catalogs, and showcase-driven validation — repeated patterns become reusable product infrastructure.",
       },
       {
-        id: "NODE-903",
-        route: "Region D → Region F",
-        status: "Active",
-        delay: "0.2s",
+        id: "DATA-022",
+        route: "State and contracts",
+        status: "Lead",
+        delay: "Safer refactors and fewer bugs",
+        detail:
+          "TanStack Query, RTK where appropriate, Zod at API and form boundaries — server state and validation stay explicit as features grow.",
       },
       {
-        id: "NODE-771",
-        route: "Region A → Region B",
-        status: "Review",
-        delay: "2.0s",
+        id: "PERF-033",
+        route: "Performance strategy",
+        status: "Lead",
+        delay: "Faster load and interaction",
+        detail:
+          "Virtualization, map/tracker isolation, worker-backed remapping, and render discipline for data-heavy views under production usage.",
+      },
+      {
+        id: "QUAL-041",
+        route: "Testing and review",
+        status: "Lead",
+        delay: "Stable releases at scale",
+        detail:
+          "Playwright and unit tests on critical flows, hands-on code review, and conventions that keep quality predictable across contributors.",
+      },
+      {
+        id: "PIPE-052",
+        route: "Delivery pipelines",
+        status: "Lead",
+        delay: "Repeatable production shipping",
+        detail:
+          "CI/CD readiness, containerized builds, environment discipline, and observability hooks so releases are operable — not one-off deploys.",
+      },
+      {
+        id: "I18N-061",
+        route: "Multilingual / RTL UX",
+        status: "Lead",
+        delay: "Usable across locales",
+        detail:
+          "RTL layouts, localized inputs, Jalali date workflows, and multilingual product surfaces built into component and routing foundations.",
+      },
+      {
+        id: "OPS-070",
+        route: "Production operations",
+        status: "Lead",
+        delay: "Software that survives daily use",
+        detail:
+          "Map-heavy admin, export workflows, RBAC surfaces, and monitoring views designed for operators — not demos that collapse under real data.",
       },
     ],
-    selectedRowTitle: "Selected row",
+    selectedRowTitle: "Ownership focus",
     selectedRowDescription:
-      "Example of the kind of table behavior I build for operational software: virtualized row rendering, server pagination, typed cell boundaries, and UI that stays responsive when operators inspect high-volume datasets.",
+      "Select a row to see how I frame senior frontend ownership — architecture decisions, reusable foundations, production constraints, and practices that keep products maintainable at scale.",
   },
 };

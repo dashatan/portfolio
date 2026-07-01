@@ -61,6 +61,19 @@ export function HeroSection() {
 
           <Card>
             <Eyebrow tone="muted" tracking="section">
+              {profile.hero.coreSkills}
+            </Eyebrow>
+            <BulletList className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {profile.skills.map((item) => (
+                <BulletItem key={item} tone="secondary">
+                  {item}
+                </BulletItem>
+              ))}
+            </BulletList>
+          </Card>
+
+          <Card>
+            <Eyebrow tone="muted" tracking="section">
               {profile.hero.focusAreas}
             </Eyebrow>
             <BulletList className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -95,27 +108,40 @@ export function SystemsSection() {
       <Container>
         <SectionLabel {...systems.header} />
 
-        <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
-          <div className="space-y-4">
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-              {systems.metrics.map((metric) => (
-                <StatCard
-                  key={metric.label}
-                  label={metric.label}
-                  value={metric.value}
-                  valueClassName="text-2xl"
-                />
-              ))}
-            </div>
+        <div className="grid gap-6">
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            {systems.metrics.map((metric) => (
+              <StatCard
+                key={metric.label}
+                label={metric.label}
+                value={metric.value}
+                valueClassName="text-2xl"
+              />
+            ))}
+          </div>
 
-            <Card className="space-y-5">
-              <Text variant="muted">{systems.platformDescription}</Text>
-              <DotList>
-                {systems.highlights.map((highlight) => (
-                  <DotListItem key={highlight}>{highlight}</DotListItem>
-                ))}
-              </DotList>
-            </Card>
+          <Card>
+            <Text variant="muted" className="max-w-4xl">
+              {systems.platformDescription}
+            </Text>
+          </Card>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {systems.pillars.map((pillar) => (
+              <Card key={pillar.title}>
+                <Text as="p" variant="muted" className="font-medium text-foreground">
+                  {pillar.title}
+                </Text>
+                <Text variant="muted" className="mt-2">
+                  {pillar.description}
+                </Text>
+                <DotList className="mt-4">
+                  {pillar.items.map((item) => (
+                    <DotListItem key={item}>{item}</DotListItem>
+                  ))}
+                </DotList>
+              </Card>
+            ))}
           </div>
 
           <DemoDataTable {...systems.demo} />

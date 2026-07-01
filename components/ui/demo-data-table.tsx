@@ -44,11 +44,11 @@ export function DemoDataTable({
 
       <GridPanel>
         <InsetPanel>
-          <div className="grid grid-cols-[1.1fr_1fr_auto_auto] gap-3 border-b border-border px-4 py-3 font-mono text-[10px] tracking-wide text-muted uppercase">
+          <div className="grid grid-cols-[minmax(92px,0.9fr)_minmax(0,1.4fr)_minmax(70px,0.55fr)_minmax(150px,1fr)] gap-3 border-b border-border px-4 py-3 font-mono text-[10px] tracking-wide text-muted uppercase">
             <span>{columns.entity}</span>
             <span>{columns.path}</span>
-            <span>{columns.status}</span>
-            <span>{columns.render}</span>
+            <span className="text-right">{columns.status}</span>
+            <span className="text-right">{columns.render}</span>
           </div>
           {rows.map((row, index) => (
             <button
@@ -56,17 +56,17 @@ export function DemoDataTable({
               type="button"
               onClick={() => setActiveIndex(index)}
               className={cn(
-                "grid w-full grid-cols-[1.1fr_1fr_auto_auto] gap-3 border-b",
+                "grid w-full grid-cols-[minmax(92px,0.9fr)_minmax(0,1.4fr)_minmax(70px,0.55fr)_minmax(150px,1fr)] gap-3 border-b",
                 "border-border px-4 py-3 text-left text-sm transition-colors last:border-b-0",
                 activeIndex === index
                   ? "bg-accent/20"
                   : "text-muted hover:bg-surface-elevated/70 hover:text-foreground",
               )}
             >
-              <span className="font-mono text-xs">{row.id}</span>
-              <span>{row.route}</span>
-              <span>{row.status}</span>
-              <span className="font-mono text-xs text-accent">{row.delay}</span>
+              <span className="font-mono text-xs tabular-nums">{row.id}</span>
+              <span className="truncate">{row.route}</span>
+              <span className="text-right font-mono text-xs">{row.status}</span>
+              <span className="text-right font-mono text-xs text-accent">{row.delay}</span>
             </button>
           ))}
         </InsetPanel>
@@ -79,7 +79,7 @@ export function DemoDataTable({
             {activeRow.id} · {activeRow.route}
           </p>
           <Text variant="caption" className="mt-1">
-            {selectedRowDescription}
+            {activeRow.detail ?? selectedRowDescription}
           </Text>
         </InsetPanel>
       </GridPanel>

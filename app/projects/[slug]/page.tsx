@@ -106,11 +106,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </Card>
             ) : null}
 
-            {project.links?.length ? (
+            {project.liveDemo || project.links?.length ? (
               <Card>
                 <Subheading>{site.projectPage.links}</Subheading>
                 <div className="mt-4 flex flex-wrap gap-3">
-                  {project.links.map((link) => (
+                  {project.liveDemo ? (
+                    <ExternalLink
+                      href={project.liveDemo}
+                      className="text-accent hover:underline"
+                    >
+                      {site.work.liveDemo}
+                    </ExternalLink>
+                  ) : null}
+                  {project.links?.map((link) => (
                     <ExternalLink
                       key={link.href}
                       href={link.href}

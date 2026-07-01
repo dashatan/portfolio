@@ -16,6 +16,7 @@ export type Project = {
   highlights: string[];
   featured: boolean;
   flagship?: boolean;
+  liveDemo?: string;
   links?: ProjectLink[];
   visualNote?: string;
 };
@@ -81,6 +82,13 @@ export type DemoTableRow = {
   route: string;
   status: string;
   delay: string;
+  detail?: string;
+};
+
+export type SystemPillar = {
+  title: string;
+  description: string;
+  items: string[];
 };
 
 export type ContactChannel = {
@@ -93,7 +101,7 @@ export type SystemsContent = {
   header: SectionHeader;
   metrics: ProfileStat[];
   platformDescription: string;
-  highlights: string[];
+  pillars: SystemPillar[];
   demo: {
     panelTitle: string;
     badge: string;

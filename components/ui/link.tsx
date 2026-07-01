@@ -57,7 +57,7 @@ export function ExternalLink({ className, children, ...props }: ExternalLinkProp
       className={cn("text-sm text-muted transition-colors hover:text-accent", className)}
       {...props}
     >
-      {children} ↗
+      {children}
     </a>
   );
 }

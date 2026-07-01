@@ -3,130 +3,75 @@ import type { Project } from "@/content/types";
 export const projects: Project[] = [
   {
     slug: "dash-comps",
-    name: "dash-comps",
-    tagline: "Enterprise UI platform & design system",
-    type: "Design system · Monorepo · Showcase",
+    name: "Dash Components",
+    tagline: "Component platform, design-system catalog, and live showcase",
+    type: "Design system · Monorepo · Vite showcase",
     stack: [
       "pnpm",
       "React 19",
       "TypeScript",
       "Tailwind v4",
+      "TanStack Router",
       "Zustand",
       "MapLibre",
       "ECharts",
-      "Framer Motion",
       "Radix UI",
     ],
     problem:
-      "Operational products repeatedly solved the same expensive UI problems — server-driven tables, trackers, maps, localized inputs, dashboard shells — without a shared typed layer. That created drift, duplicated effort, and inconsistent behavior across features.",
+      "Operational UIs repeatedly re-solve the same problems — tables, maps, trackers, forms, overlays, localized inputs — without a shared typed layer. That creates inconsistent behavior, duplicated effort, and slower feature delivery across teams.",
     built:
-      "A pnpm monorepo with separated packages for core utilities, styles, common primitives, and compound widgets, plus a Vite showcase app that documents and stress-tests more than 40 modules in isolation and in realistic compositions.",
+      "A pnpm monorepo with separated packages for core utilities, styles, common primitives, and compound widgets, plus a Vite showcase app that documents and exercises 40+ component categories in isolation and in realistic compositions.",
     approach:
-      "Keep third-party libraries at primitive boundaries only — overlays, chart engines, map engines — while owning product-specific behavior in typed compound components, stores, and feature-ready APIs.",
+      "Keep third-party engines at primitive boundaries (maps, charts, overlays) while owning product behavior in typed compound components, stores, and feature-ready APIs. Catalog-driven development so components are validated as systems, not one-off screens.",
     impact:
-      "This is the most direct public expression of how I design frontend platforms: repeated complexity becomes a catalog, not a rewrite. The same patterns support RTL, theme modes, large datasets, and map-centric workflows.",
+      "Public expression of how I design frontend platforms: repeated complexity becomes a catalog, not a rewrite. Same patterns support RTL, theme modes, large datasets, and map-centric workflows.",
     highlights: [
-      "Enterprise table built for server pagination, filtering, lean row rendering, and high-volume datasets",
-      "GPS tracker with playback engine, map engine abstraction, and worker-backed data remapping",
-      "Localized date picker, structured inputs, location picker, license-style inputs, and dashboard shells",
-      "Locale validation workflow across English, Arabic, and additional RTL markets",
-      "Showcase-driven development so components are tested as products, not Storybook ornaments",
+      "40+ catalog categories across common primitives and compound widgets (table, tracker, form, dashboard, location-picker, file-uploader, and more)",
+      "Enterprise table patterns for server pagination, filtering, and high-volume datasets",
+      "GPS tracker with playback engine, map abstraction, and worker-backed trace remapping",
+      "Localized inputs, Persian date picker, and multi-locale validation workflows",
+      "Showcase app with per-component pages, code previews, and featured home compositions",
     ],
     featured: true,
     flagship: true,
-    visualNote: "TODO: Add showcase screenshots or an embedded demo recording",
+    liveDemo: "https://dash-comps.vercel.app/",
+    visualNote: "TODO: Add showcase screenshots from dash-comps.vercel.app",
   },
   {
-    slug: "trade-bot",
-    name: "trade-bot",
-    tagline: "TradingView → exchange → Telegram loop",
-    type: "Full-stack side project",
+    slug: "dash-logistics",
+    name: "Dash Logistics",
+    tagline:
+      "European fleet operations admin with real API and production-style frontend layers",
+    type: "Operational dashboard · React SPA · Hono API",
     stack: [
-      "Next.js 15",
       "React 19",
       "TypeScript",
-      "Tailwind v4",
-      "Prisma",
-      "SQLite",
-      "NextAuth",
+      "Vite",
+      "TanStack Router",
       "TanStack Query",
-      "Docker",
-    ],
-    problem:
-      "Manual trading workflows break down when signal detection, exchange execution, and alerting live in separate tabs and mental contexts. I wanted one system that could observe conditions, act, log outcomes, and be configured without redeploying code.",
-    built:
-      "A full-stack app with authenticated admin UI, Prisma-backed configuration and signal history, a CLI bot runner, CoinEx integration for spot and futures flows, and Telegram notifications for state changes and executions.",
-    approach:
-      "Treat the bot as a product with observability: every signal, config change, and execution path should be inspectable from the UI or logs, not hidden in a script.",
-    impact:
-      "Demonstrates that I can own the entire loop outside client work — frontend, auth, persistence, background logic, external APIs, and deployment packaging.",
-    highlights: [
-      "TradingView-derived RSI/MACD signal pipeline with configurable thresholds",
-      "Separate admin dashboard and long-running bot runner",
-      "Authenticated access, persisted configs, and signal history",
-      "Docker Compose setup with documented local and deployment workflow",
-      "Typed API boundaries and pragmatic error handling around exchange responses",
-    ],
-    featured: true,
-  },
-  {
-    slug: "equipe",
-    name: "Equipe",
-    tagline: "Social activity matching prototype",
-    type: "Product prototype · UI-first",
-    stack: [
-      "Next.js 15",
-      "TypeScript",
+      "Hono",
+      "Zod",
+      "SQLite",
       "Tailwind v4",
-      "Radix UI",
-      "NextAuth",
-      "MongoDB",
-      "Motion",
     ],
     problem:
-      "Generic social products optimize for feed engagement, not for helping people find the right group for a specific shared activity. The UX challenge here is discovery, trust, and clarity — not infinite scroll.",
+      "Fleet and logistics products need dense operational UIs — live maps, shipments, fleet assignments, finance, reports — with maintainable frontend architecture as modules grow. Ad-hoc data fetching and page-level coupling make long-term delivery fragile.",
     built:
-      "A feature-based Next.js application with a marketing landing page, auth-ready app shell, explore/nearby/group/profile flows, admin panel scaffolding, and a cohesive component system built early enough to support iteration.",
+      "A full-stack demo: logistics-admin SPA with hexagonal frontend layers (routes, features, domain ports, infrastructure repositories) backed by a Hono REST API, shared Zod contracts, and seeded operational data — deployed as dash-logistics on Vercel.",
     approach:
-      "Invest in information architecture and UI structure before pretending the backend is finished. Prototype the product shape clearly even when data is still thin.",
+      "Thin route files, feature-owned pages, repository ports for data access, and TanStack Query for server state. Feature modules (overview, fleet, tracker, customers, finance, warehouses, routes, reports, settings) compose shared dash-comps UI primitives.",
     impact:
-      "Shows product thinking and frontend architecture in an early-stage idea — how I structure a app so real features can land without rewriting the shell.",
+      "Demonstrates senior frontend delivery on a real product shape: modular routing, typed API boundaries, map/tracker flows, form sheets with Zod validation, i18n-ready surfaces, and patterns that scale when new operational modules are added.",
     highlights: [
-      "Feature-folder architecture with clear separation between marketing and app surfaces",
-      "Auth-ready dashboard shell and admin panel structure",
-      "Explore, nearby, groups, chat, and profile flows designed as a coherent system",
-      "Motion-aware UI that supports clarity rather than decoration",
-      "Strong base for turning prototype screens into wired product flows",
+      "Live and playback tracker pages wired through repository layer and periodic query refetch",
+      "20+ feature modules across fleet, shipments, finance, analytics, reports, and settings",
+      "Typed customer account/contract forms with react-hook-form + Zod resolvers in sheet workflows",
+      "Shared contracts package keeping API and admin DTOs aligned",
+      "European-themed operational data: hubs, corridors, fleet utilization, and delivery performance views",
     ],
     featured: true,
-    visualNote: "TODO: Add demo screenshots or a deploy preview when ready",
-  },
-  {
-    slug: "resumes",
-    name: "Resume tooling",
-    tagline: "Editor, PDF pipeline & interview flashcards",
-    type: "Personal meta-engineering",
-    stack: ["Node.js", "Puppeteer", "Vanilla JS", "Tailwind CDN", "Vercel serverless"],
-    problem:
-      "Maintaining multiple resume variants, localized PDF output, and interview prep in separate documents created friction every time I updated content or targeted a different role/market.",
-    built:
-      "A local editor and serverless deployment with structured resume data, live preview, save/build APIs, eight ATS PDF variants, HTML export, and flashcards generated from a large senior-level interview Q&A corpus.",
-    approach:
-      "Make content the source of truth and treat rendering as a pipeline problem — preview, HTML, PDF, and study tools should all derive from the same structured data.",
-    impact:
-      "A practical example of builder mindset: I improve my own workflow with software, not spreadsheets and manual duplication.",
-    highlights: [
-      "Browser editor with live preview and structured JSON data model",
-      "Eight localized ATS PDF variants generated through Puppeteer",
-      "Interview flashcards with filters, progress tracking, and hover translation",
-      "Serverless deployment with static UI and API routes on Vercel",
-      "Content pipeline from markdown Q&A bank into interactive study tooling",
-    ],
-    featured: true,
-    links: [
-      { label: "Flashcards", href: "https://resumes-silk.vercel.app/flashcards" },
-      { label: "Editor", href: "https://resumes-silk.vercel.app" },
-    ],
+    liveDemo: "https://dash-logistics.vercel.app/",
+    visualNote: "TODO: Add logistics admin screenshots from dash-logistics.vercel.app",
   },
 ];
 

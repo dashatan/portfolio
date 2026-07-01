@@ -18,7 +18,7 @@ export const site = {
       index: "02 / Public work",
       title: "Projects you can explore directly",
       description:
-        "These are the pieces I can show openly: live tools, case studies, and code-shaped work that demonstrate how I think, build, and ship.",
+        "Deployed public apps you can explore directly: dash-comps.vercel.app and dash-logistics.vercel.app, with architecture decisions visible in code and behavior.",
     },
     productionDomains: {
       index: "03 / Production domains",
@@ -38,14 +38,8 @@ export const site = {
       description:
         "These are not keyword dumps. They reflect the tools, patterns, and problem spaces that recur across my public work and confidential production systems.",
     },
-    tools: {
-      index: "07 / Tools",
-      title: "Live utilities I built for myself",
-      description:
-        "Smaller products that show how I improve my own workflow — useful, deployed, and maintained because I actually use them.",
-    },
     contact: {
-      index: "08 / Contact",
+      index: "07 / Contact",
       title: "If you're building something complex, let's talk systems.",
       description:
         "Email is the best way to reach me. I am especially interested in products where frontend architecture, maps, data density, multilingual UX, or long-term platform maintainability are central — not cosmetic concerns added at the end.",
@@ -58,7 +52,8 @@ export const site = {
     problem: "Problem ·",
     built: "Built ·",
     impact: "Impact ·",
-    fullCaseStudy: "Full case study →",
+    caseStudy: "Case study ↗",
+    liveDemo: "Live demo ↗",
     nda: "NDA",
     myRole: "My role ·",
     domainOverview: "Read domain overview →",

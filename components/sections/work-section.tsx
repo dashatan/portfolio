@@ -66,8 +66,11 @@ function PublicProjectCard({ project, index }: { project: Project; index: number
         <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-2">
           <div className="flex flex-wrap gap-4">
             <TextLink href={`/projects/${project.slug}`} className="group-hover:opacity-80">
-              {site.work.fullCaseStudy}
+              {site.work.caseStudy}
             </TextLink>
+            {project.liveDemo ? (
+              <ExternalLink href={project.liveDemo}>{site.work.liveDemo}</ExternalLink>
+            ) : null}
             {project.links?.map((link) => (
               <ExternalLink key={link.href} href={link.href}>
                 {link.label}
@@ -136,7 +139,7 @@ export function WorkSection() {
         <div>
           <SectionLabel {...site.sections.publicWork} />
 
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2">
             {publicProjects.map((project, index) => (
               <PublicProjectCard key={project.slug} project={project} index={index} />
             ))}
